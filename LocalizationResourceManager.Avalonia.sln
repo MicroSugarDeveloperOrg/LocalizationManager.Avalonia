@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{186AA57E-0EFA-4579-B045-677A720DC241}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Build\Directory.build.common.props = Build\Directory.build.common.props
+		Build\Directory.build.common.targets = Build\Directory.build.common.targets
+		Directory.Build.props = Directory.Build.props
+		Directory.build.targets = Directory.build.targets
+		Directory.buildcpp.props = Directory.buildcpp.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample", "Source\Sample\LocalizationResourceManager.Sample\LocalizationResourceManager.Sample.csproj", "{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.Android", "Source\Sample\LocalizationResourceManager.Sample.Android\LocalizationResourceManager.Sample.Android.csproj", "{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.Desktop", "Source\Sample\LocalizationResourceManager.Sample.Desktop\LocalizationResourceManager.Sample.Desktop.csproj", "{83706D58-02B1-4333-B575-EC3ED1650BBC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.iOS", "Source\Sample\LocalizationResourceManager.Sample.iOS\LocalizationResourceManager.Sample.iOS.csproj", "{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.Web", "Source\Sample\LocalizationResourceManager.Sample.Web\LocalizationResourceManager.Sample.Web.csproj", "{A0B38760-B25A-4870-9BAE-EE4BD28EB109}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
+	EndGlobalSection
+EndGlobal
