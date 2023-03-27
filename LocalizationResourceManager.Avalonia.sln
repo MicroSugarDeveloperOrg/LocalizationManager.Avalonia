@@ -20,17 +20,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{186AA5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample", "Source\Sample\LocalizationResourceManager.Sample\LocalizationResourceManager.Sample.csproj", "{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.Android", "Source\Sample\LocalizationResourceManager.Sample.Android\LocalizationResourceManager.Sample.Android.csproj", "{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.Desktop", "Source\Sample\LocalizationResourceManager.Sample.Desktop\LocalizationResourceManager.Sample.Desktop.csproj", "{83706D58-02B1-4333-B575-EC3ED1650BBC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.iOS", "Source\Sample\LocalizationResourceManager.Sample.iOS\LocalizationResourceManager.Sample.iOS.csproj", "{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Sample.Web", "Source\Sample\LocalizationResourceManager.Sample.Web\LocalizationResourceManager.Sample.Web.csproj", "{A0B38760-B25A-4870-9BAE-EE4BD28EB109}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationResourceManager.Avalonia", "Source\LocalizationResourceManager.Avalonia\LocalizationResourceManager.Avalonia.csproj", "{E731E6D1-A447-4E36-AA01-C2EE271902D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Avalonia", "Source\LocalizationResourceManager.Avalonia\LocalizationResourceManager.Avalonia.csproj", "{E731E6D1-A447-4E36-AA01-C2EE271902D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Android", "Source\Sample\LocalizationResourceManager.Android\LocalizationResourceManager.Android.csproj", "{B4638324-8334-4DF8-A3D1-88954DED8516}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Desktop", "Source\Sample\LocalizationResourceManager.Desktop\LocalizationResourceManager.Desktop.csproj", "{5FB5294C-10D9-4193-9A98-9FD732A7B8F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.iOS", "Source\Sample\LocalizationResourceManager.iOS\LocalizationResourceManager.iOS.csproj", "{560F6EBD-6C47-486F-B539-84DB24407AC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationResourceManager.Web", "Source\Sample\LocalizationResourceManager.Web\LocalizationResourceManager.Web.csproj", "{620BDB94-48DB-4D67-A576-69F5D4F2EC44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,40 +42,40 @@ Global
 		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83706D58-02B1-4333-B575-EC3ED1650BBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0B38760-B25A-4870-9BAE-EE4BD28EB109}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E731E6D1-A447-4E36-AA01-C2EE271902D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E731E6D1-A447-4E36-AA01-C2EE271902D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E731E6D1-A447-4E36-AA01-C2EE271902D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E731E6D1-A447-4E36-AA01-C2EE271902D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4638324-8334-4DF8-A3D1-88954DED8516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4638324-8334-4DF8-A3D1-88954DED8516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4638324-8334-4DF8-A3D1-88954DED8516}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B4638324-8334-4DF8-A3D1-88954DED8516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4638324-8334-4DF8-A3D1-88954DED8516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4638324-8334-4DF8-A3D1-88954DED8516}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5FB5294C-10D9-4193-9A98-9FD732A7B8F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB5294C-10D9-4193-9A98-9FD732A7B8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB5294C-10D9-4193-9A98-9FD732A7B8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB5294C-10D9-4193-9A98-9FD732A7B8F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560F6EBD-6C47-486F-B539-84DB24407AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560F6EBD-6C47-486F-B539-84DB24407AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560F6EBD-6C47-486F-B539-84DB24407AC7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{560F6EBD-6C47-486F-B539-84DB24407AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560F6EBD-6C47-486F-B539-84DB24407AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560F6EBD-6C47-486F-B539-84DB24407AC7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{620BDB94-48DB-4D67-A576-69F5D4F2EC44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620BDB94-48DB-4D67-A576-69F5D4F2EC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620BDB94-48DB-4D67-A576-69F5D4F2EC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620BDB94-48DB-4D67-A576-69F5D4F2EC44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7CFACA55-2AEE-48C0-8AF4-5D173CC2E08C} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
-		{8EFFE514-6EC3-4DF2-83B2-1BCA8E62820B} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
-		{83706D58-02B1-4333-B575-EC3ED1650BBC} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
-		{B0D7BB4A-B95F-4458-8626-AC65899BBDBC} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
-		{A0B38760-B25A-4870-9BAE-EE4BD28EB109} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{B4638324-8334-4DF8-A3D1-88954DED8516} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{5FB5294C-10D9-4193-9A98-9FD732A7B8F6} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{560F6EBD-6C47-486F-B539-84DB24407AC7} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{620BDB94-48DB-4D67-A576-69F5D4F2EC44} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
