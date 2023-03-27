@@ -1,7 +1,4 @@
-﻿using LocalizationManager.Avalonia.Extensions;
-using System.Reactive.Subjects;
-
-namespace LocalizationManager.Avalonia;
+﻿namespace LocalizationManager.Avalonia;
 
 public class LocalizedMarkupExtension : MarkupExtension
 {
