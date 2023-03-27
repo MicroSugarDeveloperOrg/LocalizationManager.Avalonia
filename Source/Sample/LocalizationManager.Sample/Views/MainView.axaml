@@ -4,13 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:LocalizationManager.Sample.ViewModels"
              xmlns:localized="using:LocalizationManager.Avalonia"
+             xmlns:manager="using:LocalizationManager"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="LocalizationManager.Sample.Views.MainView"
              Foreground="White"
              Background="#171C2C">
-  <Design.DataContext>
-    <viewModels:MainViewModel />
-  </Design.DataContext>
-
-  <TextBlock Text="{localized:LocalizedMarkupExtension HelloWorld}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<Design.DataContext>
+		<viewModels:MainViewModel />
+	</Design.DataContext>
+	<StackPanel>
+		<TextBlock Text="{localized:LocalizedMarkupExtension HelloWorld}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="PART_Button" Content="Click" />
+	</StackPanel>
 </UserControl>

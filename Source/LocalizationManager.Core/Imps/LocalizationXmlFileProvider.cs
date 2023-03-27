@@ -1,4 +1,6 @@
-﻿using System.Xml;
+﻿using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace LocalizationManager.Core.Imps;
 internal class LocalizationXmlFileProvider : ILocalizationProvider
@@ -29,19 +31,14 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
             using var readStream = file.OpenRead();
             if (readStream is null)
                 continue;
-
-            using var reader = XmlReader.Create(readStream);
-            var document = new XmlDocument();
-            document.PreserveWhitespace = true;
-            document.Load(reader);
-
+            var document = XElement.Load(readStream);         
             var mapValues = new Dictionary<string, string>();
-            LoadLanguage(document.ParentNode, mapValues);
-            _mapResources[file.Name] = mapValues;
+            LoadLanguage(document, mapValues);
+            _mapResources[Path.GetFileNameWithoutExtension(file.Name)] = mapValues;
         }
     }
 
-    void LoadLanguage(XmlNode node, Dictionary<string, string> mapValues)
+    void LoadLanguage(XElement node, Dictionary<string, string> mapValues)
     {
         if (node is null)
             return;
@@ -49,26 +46,33 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
         if (mapValues is null)
             return;
 
-        if (node.HasChildNodes)
+        if (node.HasElements)
         {
-            foreach (XmlNode item in node.ChildNodes)
+            foreach (var item in node.Elements())
                 LoadLanguage(item, mapValues);
         }
         else
-            mapValues[node.Name] = node.Value;
+        {
+            var name = node.Name.LocalName;
+            mapValues[name] = node.Value;
+        }
 
         return;
     }
 
     string ILocalizationProvider.GetString(string token, CultureInfo culture)
     {
-        var mapValues = _mapResources.Select(kv =>
+        var mapValues = _mapResources.Where( kv => kv.Key.Contains(culture.TwoLetterISOLanguageName)).FirstOrDefault().Value;
+        if (mapValues is null)
         {
-            if (kv.Key.Contains(culture.TwoLetterISOLanguageName))
-                return kv.Value;
+            mapValues = _mapResources.Where(kv =>
+            {
+                if (kv.Key == _baseName)
+                    return true;
 
-            return null;
-        }).FirstOrDefault();
+                return false;
+            }).FirstOrDefault().Value;
+        }
 
         if (mapValues is null)
             return string.Empty;

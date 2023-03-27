@@ -18,7 +18,9 @@ public partial class App : Application
         base.RegisterServices();
         AvaloniaLocator.CurrentMutable.UseLocalizationManager(() =>
         {
-            var appDirectory = AppContext.BaseDirectory;
+            //var appDirectory = AppContext.BaseDirectory;
+            //var path = Path.Combine(appDirectory, "Assets", "Languages");
+            var appDirectory = Environment.CurrentDirectory;
             var path = Path.Combine(appDirectory, "Assets", "Languages");
             return LocalizationProviderExtensions.MakeXmlFileProvider(path, "language");
         });
