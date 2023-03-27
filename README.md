@@ -1,1 +1,1 @@
-# LocalizationResourceManager.Avalonia
+# LocalizationManager.Avalonia

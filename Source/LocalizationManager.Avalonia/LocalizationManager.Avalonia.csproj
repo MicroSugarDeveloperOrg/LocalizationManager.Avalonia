@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LocalizationManager.Core\LocalizationManager.Core.csproj" />
+	</ItemGroup>
+
+</Project>
+ 

@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{186AA57E-0EFA-4579-B045-677A720DC241}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Build\Directory.build.common.props = Build\Directory.build.common.props
+		Build\Directory.build.common.targets = Build\Directory.build.common.targets
+		Directory.Build.props = Directory.Build.props
+		Directory.build.targets = Directory.build.targets
+		Directory.buildcpp.props = Directory.buildcpp.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Avalonia", "Source\LocalizationManager.Avalonia\LocalizationManager.Avalonia.csproj", "{10E74027-0E46-4250-A161-3BEF1F73FCE5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Core", "Source\LocalizationManager.Core\LocalizationManager.Core.csproj", "{FA025C5F-BDD7-4891-9BD5-40CA98B32337}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample", "Source\Sample\LocalizationManager.Sample\LocalizationManager.Sample.csproj", "{2CFF54EB-570B-4EFA-9CF5-903FE7BF53F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Android", "Source\Sample\LocalizationManager.Sample.Android\LocalizationManager.Sample.Android.csproj", "{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Desktop", "Source\Sample\LocalizationManager.Sample.Desktop\LocalizationManager.Sample.Desktop.csproj", "{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.iOS", "Source\Sample\LocalizationManager.Sample.iOS\LocalizationManager.Sample.iOS.csproj", "{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Web", "Source\Sample\LocalizationManager.Sample.Web\LocalizationManager.Sample.Web.csproj", "{A0C84A35-3AC6-4B09-9439-F3CB22345A00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10E74027-0E46-4250-A161-3BEF1F73FCE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E74027-0E46-4250-A161-3BEF1F73FCE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E74027-0E46-4250-A161-3BEF1F73FCE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E74027-0E46-4250-A161-3BEF1F73FCE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA025C5F-BDD7-4891-9BD5-40CA98B32337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA025C5F-BDD7-4891-9BD5-40CA98B32337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA025C5F-BDD7-4891-9BD5-40CA98B32337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA025C5F-BDD7-4891-9BD5-40CA98B32337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFF54EB-570B-4EFA-9CF5-903FE7BF53F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFF54EB-570B-4EFA-9CF5-903FE7BF53F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFF54EB-570B-4EFA-9CF5-903FE7BF53F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFF54EB-570B-4EFA-9CF5-903FE7BF53F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CFF54EB-570B-4EFA-9CF5-903FE7BF53F0} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{0F3F2D5A-342B-484B-B7A5-9043ECA329DD} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{A0C84A35-3AC6-4B09-9439-F3CB22345A00} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
+	EndGlobalSection
+EndGlobal
