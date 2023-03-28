@@ -1,6 +1,4 @@
-﻿using Avalonia.Controls;
-
-namespace LocalizationManager.Avalonia;
+﻿namespace LocalizationManager.Avalonia;
 
 public class LocalizedBinding : AvaloniaObject
 {
@@ -8,7 +6,7 @@ public class LocalizedBinding : AvaloniaObject
     {
 
     }
- 
+
     public static readonly StyledProperty<string> TokenProperty =
             AvaloniaProperty.Register<LocalizedBinding, string>(nameof(Token));
 
@@ -25,7 +23,7 @@ public class LocalizedBinding : AvaloniaObject
 
     protected BehaviorSubject<string>? Subject { get; private set; }
 
-    public  object ProvideValue(IServiceProvider serviceProvider)
+    public object ProvideValue(IServiceProvider serviceProvider)
     {
         var LocalizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
         if (LocalizationManager is null)
