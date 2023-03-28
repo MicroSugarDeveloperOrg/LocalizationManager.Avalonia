@@ -1,6 +1,6 @@
 ﻿namespace LocalizationManager.Avalonia;
 
-public class LocalizedXamlString : AvaloniaObject
+public class LocalizedXamlString : AvaloniaObject /*: MarkupExtension*/
 {
     public LocalizedXamlString()
     {
@@ -26,18 +26,18 @@ public class LocalizedXamlString : AvaloniaObject
 
     protected BehaviorSubject<string>? Subject { get; private set; }
 
-    public  object ProvideValue(IServiceProvider serviceProvider)
+    public object ProvideValue(IServiceProvider serviceProvider)
     {
-        var LocalizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
-        if (LocalizationManager is null)
+        var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
+        if (localizationManager is null)
             return AvaloniaProperty.UnsetValue;
 
-        LocalizationManager.PropertyChanged += (s, e) =>
+        localizationManager.PropertyChanged += (s, e) =>
         {
-            Subject?.OnNext(LocalizationManager[Token]);
+            Subject?.OnNext(localizationManager[Token]);
         };
 
-        Subject = new(LocalizationManager[Token]);
+        Subject = new(localizationManager[Token]);
 
         var binding = new Binding
         {

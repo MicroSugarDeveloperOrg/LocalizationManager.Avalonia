@@ -4,7 +4,17 @@ public class LocalizedBinding : AvaloniaObject
 {
     public LocalizedBinding()
     {
+        TokenProperty.Changed.AddClassHandler<LocalizedBinding, string>((s, e) =>
+        {
+            if (s is null)
+                return;
 
+            var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
+            if (localizationManager is null)
+                return;
+
+            s.Subject?.OnNext(localizationManager[e.NewValue.Value]);
+        });
     }
 
     public static readonly StyledProperty<string> TokenProperty =
@@ -18,23 +28,22 @@ public class LocalizedBinding : AvaloniaObject
         set => SetValue(TokenProperty, value);
     }
 
-
     public string? StringFormat { get; set; }
 
     protected BehaviorSubject<string>? Subject { get; private set; }
 
     public object ProvideValue(IServiceProvider serviceProvider)
     {
-        var LocalizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
-        if (LocalizationManager is null)
+        var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
+        if (localizationManager is null)
             return AvaloniaProperty.UnsetValue;
 
-        LocalizationManager.PropertyChanged += (s, e) =>
+        localizationManager.PropertyChanged += (s, e) =>
         {
-            Subject?.OnNext(LocalizationManager[Token]);
+            Subject?.OnNext(localizationManager[Token]);
         };
 
-        Subject = new(LocalizationManager[Token]);
+        Subject = new(localizationManager[Token]);
 
         var binding = new Binding
         {
