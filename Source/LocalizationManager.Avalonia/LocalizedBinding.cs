@@ -1,4 +1,6 @@
-﻿namespace LocalizationManager.Avalonia;
+﻿using Avalonia.Threading;
+
+namespace LocalizationManager.Avalonia;
 
 public class LocalizedBinding : AvaloniaObject
 {
@@ -15,6 +17,12 @@ public class LocalizedBinding : AvaloniaObject
 
             s.Subject?.OnNext(localizationManager[e.NewValue.Value]);
         });
+    }
+
+    public LocalizedBinding(IBinding binding) :base()
+    {
+        var subscription = this.Bind(TokenProperty, binding);
+        //Subject?.OnNext()
     }
 
     public static readonly StyledProperty<string> TokenProperty =
@@ -43,8 +51,7 @@ public class LocalizedBinding : AvaloniaObject
             Subject?.OnNext(localizationManager[Token]);
         };
 
-        Subject = new(localizationManager[Token]);
-
+        Subject = new("");
         var binding = new Binding
         {
             Mode = BindingMode.OneWay,
@@ -53,6 +60,8 @@ public class LocalizedBinding : AvaloniaObject
             StringFormat = StringFormat
         };
 
+        //post to next property
+        Dispatcher.UIThread.Post(() => Subject.OnNext(localizationManager[Token]));
         return binding;
     }
 }
