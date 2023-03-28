@@ -15,6 +15,13 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
 
     }
 
+    private event PropertyChangedEventHandler? _StrongPropertyChanged;
+
+    event PropertyChangedEventHandler? ILocalizationChanged.StrongPropertyChanged
+    {
+        add => _StrongPropertyChanged += value;
+        remove => _StrongPropertyChanged -= value;
+    }
 
     ILocalizationProvider? _provider;
     CultureInfo _currentCulture = CultureInfo.CurrentCulture;
@@ -40,7 +47,8 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
             CultureInfo.CurrentUICulture = value;
             CultureInfo.DefaultThreadCurrentCulture = value;
             CultureInfo.DefaultThreadCurrentUICulture = value;
-            SetProperty(ref _currentCulture, value);
+            if (SetProperty(ref _currentCulture, value))
+                _StrongPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentCulture)));
         }
     }
 

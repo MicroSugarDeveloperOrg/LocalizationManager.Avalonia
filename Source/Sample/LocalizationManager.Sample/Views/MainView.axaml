@@ -12,8 +12,9 @@
 		<viewModels:MainViewModel />
 	</Design.DataContext>
 	<StackPanel>
-		<TextBlock Text="{LocalizedXamlString HelloWorld}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<TextBlock Text="{LocalizedBinding {Binding HelloWorld}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<TextBlock Text="{LocalizedXamlString HelloWorld1}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<TextBlock Text="{LocalizedBinding {Binding HelloWorld1}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<TextBlock Text="{LocalizedBinding Token=HelloWorld}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="PART_Button" Content="Click" />
 	</StackPanel>
 </UserControl>

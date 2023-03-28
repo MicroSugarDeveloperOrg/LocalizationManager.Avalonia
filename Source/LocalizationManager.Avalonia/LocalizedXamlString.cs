@@ -1,21 +1,51 @@
-﻿namespace LocalizationManager.Avalonia;
+﻿using LocalizationManager.Avalonia.Reactive;
+using System.Reactive;
 
-public class LocalizedXamlString : AvaloniaObject /*: MarkupExtension*/
+namespace LocalizationManager.Avalonia;
+
+public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtension*/
 {
-    public LocalizedXamlString()
+    static LocalizedXamlString()
     {
 
     }
 
-    public LocalizedXamlString(string token)
+    public LocalizedXamlString() : base("")
+    {
+    }
+
+    public LocalizedXamlString(string token) : this()
     {
         Token = token;
     }
 
-    public LocalizedXamlString(string token, string format)
+    public LocalizedXamlString(string token, string format) : this(token)
     {
-        Token = token;
         StringFormat = format;
+    }
+
+    ~LocalizedXamlString()
+    {
+
+    }
+
+    private ILocalizationManager? _localizationManager;
+    protected ILocalizationManager? LocalizationManager
+    {
+        get => _localizationManager;
+        set
+        {
+            _localizationManager = value;
+
+            if (_localizationManager is not null)
+                _localizationManager.PropertyChanged += (s,e)=> 
+                {
+                    if (_localizationManager is null)
+                        return;
+
+                    OnNext(_localizationManager[Token]);
+                };
+        }
     }
 
     [Content]
@@ -23,30 +53,25 @@ public class LocalizedXamlString : AvaloniaObject /*: MarkupExtension*/
     public string Token { get; set; } = string.Empty;
 
     public string? StringFormat { get; set; }
-
-    protected BehaviorSubject<string>? Subject { get; private set; }
-
-    public object ProvideValue(IServiceProvider serviceProvider)
+ 
+    public IBinding? ProvideValue(IServiceProvider serviceProvider)
     {
         var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
         if (localizationManager is null)
-            return AvaloniaProperty.UnsetValue;
+            return default;
 
-        localizationManager.PropertyChanged += (s, e) =>
+        LocalizationManager = localizationManager;
+        OnNext(localizationManager[Token]);
+        return this;
+    }
+
+    public InstancedBinding? Initiate(AvaloniaObject target, AvaloniaProperty? targetProperty, object? anchor = null, bool enableDataValidation = false)
+    {
+        var observer = Observer.Create<object?>(t =>
         {
-            Subject?.OnNext(localizationManager[Token]);
-        };
 
-        Subject = new(localizationManager[Token]);
+        });
 
-        var binding = new Binding
-        {
-            Mode = BindingMode.OneWay,
-            Path = $"Subject^",
-            Source = this,
-            StringFormat = StringFormat
-        };
-
-        return binding;
+        return InstancedBinding.TwoWay(this, observer); ;
     }
 }
