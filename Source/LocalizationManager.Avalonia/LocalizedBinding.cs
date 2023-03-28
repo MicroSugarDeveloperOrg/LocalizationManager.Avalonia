@@ -1,32 +1,31 @@
-﻿namespace LocalizationManager.Avalonia;
+﻿using Avalonia.Controls;
 
-public class LocalizedMarkupExtension : MarkupExtension
+namespace LocalizationManager.Avalonia;
+
+public class LocalizedBinding : AvaloniaObject
 {
-    public LocalizedMarkupExtension()
+    public LocalizedBinding()
     {
 
     }
-
-    public LocalizedMarkupExtension(string token)
-    {
-        Token = token;
-    }
-
-    public LocalizedMarkupExtension(string token, string format)
-    {
-        Token = token;
-        StringFormat = format;
-    }
+ 
+    public static readonly StyledProperty<string> TokenProperty =
+            AvaloniaProperty.Register<LocalizedBinding, string>(nameof(Token));
 
     [Content]
     [MarkupExtensionDefaultOption]
-    public string Token { get; set; } = string.Empty;
+    public string Token
+    {
+        get => GetValue<string>(TokenProperty);
+        set => SetValue(TokenProperty, value);
+    }
+
 
     public string? StringFormat { get; set; }
 
     protected BehaviorSubject<string>? Subject { get; private set; }
 
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public  object ProvideValue(IServiceProvider serviceProvider)
     {
         var LocalizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
         if (LocalizationManager is null)

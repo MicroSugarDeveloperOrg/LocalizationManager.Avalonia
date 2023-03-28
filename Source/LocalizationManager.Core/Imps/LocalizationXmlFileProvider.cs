@@ -62,6 +62,9 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
 
     string ILocalizationProvider.GetString(string token, CultureInfo culture)
     {
+        if (token is null)
+            return string.Empty;
+
         var mapValues = _mapResources.Where( kv => kv.Key.Contains(culture.TwoLetterISOLanguageName)).FirstOrDefault().Value;
         if (mapValues is null)
         {
