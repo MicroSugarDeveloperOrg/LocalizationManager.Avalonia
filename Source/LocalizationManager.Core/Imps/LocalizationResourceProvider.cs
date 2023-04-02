@@ -25,8 +25,23 @@ internal class LocalizationResourceProvider : ILocalizationProvider
         return resourceManager;
     }
 
-    string ILocalizationProvider.GetString(string token, CultureInfo culture) => _resourceManager.GetString(token, culture);
-    string ILocalizationProvider.GetString(string token, CultureInfo culture, params object[] arguments) => string.Format(_resourceManager.GetString(token, culture), arguments);
+    string ILocalizationProvider.GetString(string token, CultureInfo culture)
+    {
+        if (string.IsNullOrEmpty(token))
+            return string.Empty;
+
+        try
+        {
+            var value = _resourceManager.GetString(token, culture);
+            return value;
+        }
+        catch (Exception)
+        {
+            var value = _resourceManager.GetString(token);
+            return value;
+        }
+    }
+    string ILocalizationProvider.GetString(string token, CultureInfo culture, params object[] arguments) => string.Format(((ILocalizationProvider)this).GetString(token, culture), arguments);
 
     public void Dispose()
     {

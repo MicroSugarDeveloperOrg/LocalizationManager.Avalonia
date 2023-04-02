@@ -34,6 +34,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Web", "Source\Sample\LocalizationManager.Sample.Web\LocalizationManager.Sample.Web.csproj", "{A0C84A35-3AC6-4B09-9439-F3CB22345A00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationManager.Sample.Language", "Source\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj", "{F536F02C-CCEC-416F-98C8-B58F4473A5A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C84A35-3AC6-4B09-9439-F3CB22345A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{94A3642C-D2F0-4076-AD1B-E1F669A3DB0F} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 		{A0C84A35-3AC6-4B09-9439-F3CB22345A00} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{F536F02C-CCEC-416F-98C8-B58F4473A5A7} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
