@@ -17,6 +17,8 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
     readonly string _baseName;
     readonly Dictionary<string, Dictionary<string, string>> _mapResources;
 
+    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
+
     void LoadResources()
     {
         var directory = new DirectoryInfo(_baseDirectory);
@@ -25,7 +27,7 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
 
         if (files is null || files.Length <= 0)
             return;
-
+         
         foreach (var file in files)
         {
             using var readStream = file.OpenRead();

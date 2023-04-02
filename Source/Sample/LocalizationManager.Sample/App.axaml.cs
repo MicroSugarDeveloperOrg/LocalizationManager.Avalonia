@@ -5,6 +5,7 @@ using LocalizationManager.Avalonia;
 using LocalizationManager.Sample.ViewModels;
 using LocalizationManager.Sample.Views;
 using LocalizationManager.Sample.Language;
+using System.Globalization;
 
 namespace LocalizationManager.Sample;
 public partial class App : Application

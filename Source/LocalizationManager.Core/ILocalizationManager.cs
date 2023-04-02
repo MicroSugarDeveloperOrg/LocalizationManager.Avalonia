@@ -1,5 +1,5 @@
 ﻿namespace LocalizationManager;
-public interface ILocalizationManager : ILocalizationChanged, IDisposable, IAsyncDisposable
+public interface ILocalizationManager : ILocalizationLanguageMap, ILocalizationChanged, IDisposable, IAsyncDisposable
 {
     bool SetProvider(ILocalizationProvider localizationProvider);
 

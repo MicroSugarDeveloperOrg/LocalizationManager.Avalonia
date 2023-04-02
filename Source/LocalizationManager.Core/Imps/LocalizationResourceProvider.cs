@@ -13,6 +13,8 @@ internal class LocalizationResourceProvider : ILocalizationProvider
 
     readonly ResourceManager _resourceManager;
 
+    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
+
     static ResourceManager LoadResources(string resourceDirectory, string baseName, Type? usingResourceSet = null)
     {
         var resourceFileName = Path.Combine(resourceDirectory, $"{baseName}.resources");

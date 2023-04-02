@@ -52,6 +52,8 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
         }
     }
 
+    public IEnumerable<CultureInfo>? LanguageMaps => _provider?.LanguageMaps;
+
     public string GetValue(string token) => _provider?.GetString(token, CurrentCulture) ?? string.Empty;
 
     public string GetValue(string token, params object[] arguments) => _provider?.GetString(token, CurrentCulture, arguments) ?? string.Empty;
