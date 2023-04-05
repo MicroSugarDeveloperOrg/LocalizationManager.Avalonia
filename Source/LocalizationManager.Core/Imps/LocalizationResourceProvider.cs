@@ -2,8 +2,14 @@
 internal class LocalizationResourceProvider : ILocalizationProvider
 {
     public LocalizationResourceProvider(ResourceManager resourceManager)
+        : this(new List<ResourceManager>() { resourceManager })
     {
-        _resourceManager = resourceManager;
+
+    }
+
+    public LocalizationResourceProvider(IEnumerable<ResourceManager> resourceManagers)
+    {
+        _resourceManagers = resourceManagers.ToList();
     }
 
     public LocalizationResourceProvider(string resourceDirectory, string baseName, Type? usingResourceSet = null)
@@ -11,7 +17,7 @@ internal class LocalizationResourceProvider : ILocalizationProvider
     {
     }
 
-    readonly ResourceManager _resourceManager;
+    readonly List<ResourceManager> _resourceManagers;
 
     IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
 
@@ -34,12 +40,12 @@ internal class LocalizationResourceProvider : ILocalizationProvider
 
         try
         {
-            var value = _resourceManager.GetString(token, culture);
+            var value = _resourceManagers.Select(item => item.GetString(token, culture)).FirstOrDefault();
             return value;
         }
         catch (Exception)
         {
-            var value = _resourceManager.GetString(token);
+            var value = _resourceManagers.Select(item => item.GetString(token)).FirstOrDefault();
             return value;
         }
     }
@@ -47,6 +53,12 @@ internal class LocalizationResourceProvider : ILocalizationProvider
 
     public void Dispose()
     {
-        _resourceManager.ReleaseAllResources(); 
+        _resourceManagers.All(item =>
+        {
+            item.ReleaseAllResources();
+            return true;
+        });
+
+        _resourceManagers.Clear();
     }
 }

@@ -20,6 +20,12 @@ public class LocalizationProviderExtensions
         return new LocalizationResourceProvider(resourceManager);
     }
 
+    public static ILocalizationProvider MakeResourceProvider(IEnumerable<ResourceManager> resourceManagers)
+    {
+        if (resourceManagers is null) throw new ArgumentNullException(nameof(resourceManagers));
+        return new LocalizationResourceProvider(resourceManagers);
+    }
+
     public static ILocalizationProvider MakeResourceProvider(string resourceDirectory, string baseName, Type? usingResourceSet = null)
     {
         if (string.IsNullOrWhiteSpace(baseName)) throw new ArgumentNullException(nameof(baseName));
