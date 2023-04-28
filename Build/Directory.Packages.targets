@@ -8,8 +8,8 @@
 		<Company>AvaloniaDeveloperOrg</Company>
 		<Description>This repository is a set of styles that will help you customize your application with multi-language.</Description>
 		<PackageTags>easy multi-language for avaloniaui</PackageTags>
-		<RepositoryUrl>https://github.com/AvaloniaDeveloperOrg/AntDesign.Avalonia</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/AvaloniaDeveloperOrg/AntDesign.Avalonia</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AvaloniaDeveloperOrg/LocalizationManager.Avalonia</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/AvaloniaDeveloperOrg/LocalizationManager.Avalonia</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
