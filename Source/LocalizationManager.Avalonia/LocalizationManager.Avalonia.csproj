@@ -19,6 +19,9 @@
 			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
 				<TargetFramework>$(TargetFramework)</TargetFramework>
 			</TfmSpecificPackageFile>
+		    <TfmSpecificPackageFile Include="$(OutputPath)Microsoft.Bcl.AsyncInterfaces.dll">
+				<TargetFramework>$(TargetFramework)</TargetFramework>
+			</TfmSpecificPackageFile>
 		</ItemGroup>
 	</Target>
 
