@@ -19,9 +19,6 @@
 			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
 				<TargetFramework>$(TargetFramework)</TargetFramework>
 			</TfmSpecificPackageFile>
-		    <TfmSpecificPackageFile Include="$(OutputPath)Microsoft.Bcl.AsyncInterfaces.dll">
-				<TargetFramework>$(TargetFramework)</TargetFramework>
-			</TfmSpecificPackageFile>
 		</ItemGroup>
 	</Target>
 
@@ -37,6 +34,7 @@
 	<ItemGroup>
 		<PackageReference Include="Avalonia" />
 		<PackageReference Include="System.Reactive" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces"/>
 	</ItemGroup>
 
 	<ItemGroup>
