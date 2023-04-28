@@ -33,5 +33,28 @@
      }
    ```
 3. You can custom the resource provider
-   > If you use other language file, you can implement the interface -- `ILocalizationProvider` 
+   > If you use other language files or methods, you can implement the interface -- `ILocalizationProvider` 
+
+   > and set for UseLocalizationManager
+
+## Demo
+You can always download demo executable to play around with LocalizationManager
+  > https://github.com/AvaloniaDeveloperOrg/LocalizationManager.Avalonia
+
+## Version compatibility
+
+| LocalizationManager.Avalonia Version | Avalonia Version |
+|:-------------------------------------|:-----------------|
+| 0.1.0-preview6.x                     | 11.0-preview6    |
+| 0.1.0-preview7.x                     | 11.0-preview7    |
+
+**NOTE**
+
+LocalizationManager.Avalonia is moving forward together with Avalonia preview versions now. So new feature/fixes are not backported to previous preview versions. If you need a feature/fix for outdated avalonia preview version, please raise an issue so we can do that for you. 
+
+## Credits
+
+[Avalonia](https://github.com/AvaloniaUI/Avalonia)
+
+
 
