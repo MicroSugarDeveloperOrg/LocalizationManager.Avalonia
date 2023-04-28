@@ -34,6 +34,7 @@
 	<ItemGroup>
 		<PackageReference Include="Avalonia" />
 		<PackageReference Include="System.Reactive" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces"/>
 	</ItemGroup>
 
 	<ItemGroup>
