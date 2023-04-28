@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace LocalizationManager.Core.Weak;
+﻿namespace LocalizationManager.Core.Weak;
 public class WeakEventManager
 {
     private struct Subscription

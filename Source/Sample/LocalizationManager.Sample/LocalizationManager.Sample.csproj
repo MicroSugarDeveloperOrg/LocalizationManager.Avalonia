@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\LocalizationManager.Avalonia\LocalizationManager.Avalonia.csproj" />
+		<ProjectReference Include="..\..\LocalizationManager.Core\LocalizationManager.Core.csproj" />
 		<ProjectReference Include="..\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj" />
 	</ItemGroup>
 

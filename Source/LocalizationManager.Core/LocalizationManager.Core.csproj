@@ -5,9 +5,19 @@
 		<RootNamespace>LocalizationManager</RootNamespace>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PackageId>LocalizationManager.Core.Avalonia</PackageId>
+		<Title>LocalizationManager.Core</Title>
+	</PropertyGroup>
+
+	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
-		<PackageReference Include="PolySharp"/>
+		<PackageReference Include="PolySharp">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>build; analyzers</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 </Project>

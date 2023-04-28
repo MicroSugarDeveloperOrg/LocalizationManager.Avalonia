@@ -13,8 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{186AA5
 		Directory.build.targets = Directory.build.targets
 		Directory.buildcpp.props = Directory.buildcpp.props
 		Directory.Packages.props = Directory.Packages.props
+		Build\Directory.Packages.targets = Build\Directory.Packages.targets
 		global.json = global.json
 		LICENSE = LICENSE
+		Nuget.bat = Nuget.bat
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -34,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Web", "Source\Sample\LocalizationManager.Sample.Web\LocalizationManager.Sample.Web.csproj", "{A0C84A35-3AC6-4B09-9439-F3CB22345A00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationManager.Sample.Language", "Source\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj", "{F536F02C-CCEC-416F-98C8-B58F4473A5A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Language", "Source\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj", "{F536F02C-CCEC-416F-98C8-B58F4473A5A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

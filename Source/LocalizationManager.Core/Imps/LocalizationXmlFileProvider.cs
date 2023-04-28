@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Xml;
-using System.Xml.Linq;
-
-namespace LocalizationManager.Core.Imps;
+﻿namespace LocalizationManager.Core.Imps;
 internal class LocalizationXmlFileProvider : ILocalizationProvider
 {
     public LocalizationXmlFileProvider(string baseDirectory, string baseName)
@@ -27,13 +23,13 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
 
         if (files is null || files.Length <= 0)
             return;
-         
+
         foreach (var file in files)
         {
             using var readStream = file.OpenRead();
             if (readStream is null)
                 continue;
-            var document = XElement.Load(readStream);         
+            var document = XElement.Load(readStream);
             var mapValues = new Dictionary<string, string>();
             LoadLanguage(document, mapValues);
             _mapResources[Path.GetFileNameWithoutExtension(file.Name)] = mapValues;
@@ -67,7 +63,7 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
         if (token is null)
             return string.Empty;
 
-        var mapValues = _mapResources.Where( kv => kv.Key.Contains(culture.TwoLetterISOLanguageName)).FirstOrDefault().Value;
+        var mapValues = _mapResources.Where(kv => kv.Key.Contains(culture.TwoLetterISOLanguageName)).FirstOrDefault().Value;
         if (mapValues is null)
         {
             mapValues = _mapResources.Where(kv =>

@@ -1,8 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>LocalizationManager.Avalonia</PackageId>
+		<Title>LocalizationManager.Avalonia</Title>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+		<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>
+	</PropertyGroup>
+
+	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
+
+	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
+				<TargetFramework>$(TargetFramework)</TargetFramework>
+			</TfmSpecificPackageFile>
+		</ItemGroup>
+	</Target>
+
+	<Target Name="CopyProjectReferencesSymbolsToPackage" DependsOnTargets="ResolveReferences">
+		<ItemGroup>
+			<SupposedSymbolFiles Include="@(ReferenceCopyLocalPaths->'%(OutputPath)%(Filename).pdb')" />
+			<TfmSpecificDebugSymbolsFile Include="@(SupposedSymbolFiles)" Condition="Exists('%(Identity)')">
+				<TargetFramework>$(TargetFramework)</TargetFramework>
+			</TfmSpecificDebugSymbolsFile>
+		</ItemGroup>
+	</Target>
 
 	<ItemGroup>
 		<PackageReference Include="Avalonia" />
@@ -10,8 +37,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\LocalizationManager.Core\LocalizationManager.Core.csproj" />
+		<ProjectReference Include="..\LocalizationManager.Core\LocalizationManager.Core.csproj">
+			<PrivateAssets>all</PrivateAssets>
+		</ProjectReference>
 	</ItemGroup>
 
 </Project>
- 
