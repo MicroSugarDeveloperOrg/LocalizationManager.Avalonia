@@ -6,6 +6,7 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
         _baseDirectory = baseDirectory;
         _baseName = baseName;
         _mapResources = new();
+        _languages = new();
         LoadResources();
     }
 
@@ -13,7 +14,8 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
     readonly string _baseName;
     readonly Dictionary<string, Dictionary<string, string>> _mapResources;
 
-    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
+    readonly List<CultureInfo> _languages;
+    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => _languages;
 
     void LoadResources()
     {
@@ -29,6 +31,18 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
             using var readStream = file.OpenRead();
             if (readStream is null)
                 continue;
+
+            try
+            {
+                var language = file.Name.Replace(_baseName, "");
+                CultureInfo cultureInfo = new CultureInfo(language);
+                _languages.Add(cultureInfo);
+            }
+            catch (Exception)
+            {
+                 
+            }
+
             var document = XElement.Load(readStream);
             var mapValues = new Dictionary<string, string>();
             LoadLanguage(document, mapValues);
@@ -88,9 +102,14 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
         return string.Format(value, arguments);
     }
 
+    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture) => ((ILocalizationProvider)this).GetString(token, culture);
+
+    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture, params object[] arguments) => ((ILocalizationProvider)this).GetString(token, culture, arguments);
+
     public void Dispose()
     {
         foreach (var item in _mapResources)
             item.Value.Clear();
     }
+
 }

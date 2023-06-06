@@ -1,11 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using LocalizationManager.Avalonia;
+using LocalizationManager.Sample.Language;
 using LocalizationManager.Sample.ViewModels;
 using LocalizationManager.Sample.Views;
-using LocalizationManager.Sample.Language;
-using System.Globalization;
 
 namespace LocalizationManager.Sample;
 public partial class App : Application
@@ -20,17 +18,17 @@ public partial class App : Application
         base.RegisterServices();
 
         // Use xml language 
-        //AvaloniaLocator.CurrentMutable.UseLocalizationManager(() =>
-        //{
-        //    var appDirectory = AppContext.BaseDirectory;
-        //    //var path = Path.Combine(appDirectory, "Assets", "Languages");
-        //    //var appDirectory = Environment.CurrentDirectory;
-        //    var path = Path.Combine(appDirectory, "Assets", "Languages");
-        //    return LocalizationProviderExtensions.MakeXmlFileProvider(path, "language");
-        //});
+        LocalizationManagerBuilder.Initialize(() =>
+        {
+            var appDirectory = AppContext.BaseDirectory;
+            //var path = Path.Combine(appDirectory, "Assets", "Languages");
+            //var appDirectory = Environment.CurrentDirectory;
+            var path = Path.Combine(appDirectory, "Assets", "Languages");
+            return LocalizationProviderExtensions.MakeXmlFileProvider(path, "language");
+        });
 
         // Use Resoucece language
-        AvaloniaLocator.CurrentMutable.UseLocalizationManager(() =>
+        LocalizationManagerBuilder.Initialize(() =>
         {
             return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
         });

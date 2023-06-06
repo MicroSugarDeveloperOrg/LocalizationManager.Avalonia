@@ -6,7 +6,6 @@ public static class AppBuilderExtensions
         builder.AfterPlatformServicesSetup(app =>
         {
             LocalizationManagerExtensions.Default = LocalizationManagerExtensions.Make(configDelegate);
-            AvaloniaLocator.CurrentMutable.BindToSelf(LocalizationManagerExtensions.Default);
         });
 
         return builder;

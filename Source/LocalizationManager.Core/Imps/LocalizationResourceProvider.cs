@@ -19,8 +19,6 @@ internal class LocalizationResourceProvider : ILocalizationProvider
 
     readonly List<ResourceManager> _resourceManagers;
 
-    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
-
     static ResourceManager LoadResources(string resourceDirectory, string baseName, Type? usingResourceSet = null)
     {
         var resourceFileName = Path.Combine(resourceDirectory, $"{baseName}.resources");
@@ -32,6 +30,8 @@ internal class LocalizationResourceProvider : ILocalizationProvider
         var resourceManager = ResourceManager.CreateFileBasedResourceManager(baseName, resourceDirectory, usingResourceSet);
         return resourceManager;
     }
+
+    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
 
     string ILocalizationProvider.GetString(string token, CultureInfo culture)
     {
@@ -50,6 +50,10 @@ internal class LocalizationResourceProvider : ILocalizationProvider
         }
     }
     string ILocalizationProvider.GetString(string token, CultureInfo culture, params object[] arguments) => string.Format(((ILocalizationProvider)this).GetString(token, culture), arguments);
+
+    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture) => ((ILocalizationProvider)this).GetString(token, culture);
+
+    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture, params object[] arguments) => ((ILocalizationProvider)this).GetString(token, culture, arguments);
 
     public void Dispose()
     {
