@@ -1,5 +1,4 @@
-﻿using LocalizationManager.Sample.Language;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 
 namespace LocalizationManager.Sample.wpf;

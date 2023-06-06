@@ -8,8 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\LocalizationManager.Core\LocalizationManager.Core.csproj" />
-    <ProjectReference Include="..\..\LocalizationManager.wpf\LocalizationManager.Wpf.csproj" />
-    <ProjectReference Include="..\..\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj" />
+    <ProjectReference Include="..\..\LocalizationManager.Wpf\LocalizationManager.Wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>
