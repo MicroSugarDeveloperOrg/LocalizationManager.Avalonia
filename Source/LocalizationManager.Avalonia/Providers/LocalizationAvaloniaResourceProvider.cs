@@ -17,4 +17,14 @@ internal class LocalizationAvaloniaResourceProvider : ILocalizationProvider
     {
         throw new NotImplementedException();
     }
+
+    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+
+    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture, params object[] arguments)
+    {
+        throw new NotImplementedException();
+    }
 }

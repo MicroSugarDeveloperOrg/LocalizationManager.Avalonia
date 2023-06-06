@@ -5,11 +5,6 @@ namespace LocalizationManager.Avalonia;
 
 public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtension*/
 {
-    static LocalizedXamlString()
-    {
-
-    }
-
     public LocalizedXamlString() : base("")
     {
     }
@@ -19,9 +14,14 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
         Token = token;
     }
 
-    public LocalizedXamlString(string token, string format) : this(token)
+    public LocalizedXamlString(string token, object[] arguments) : this(token)
     {
-        StringFormat = format;
+        Arguments = arguments;
+    }
+
+    public LocalizedXamlString(string token, string category, object[] arguments) : this(token, arguments)
+    {
+        Category = category;
     }
 
     ~LocalizedXamlString()
@@ -35,16 +35,13 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
         get => _localizationManager;
         set
         {
+            if (_localizationManager is not null)
+                _localizationManager.PropertyChanged -= LanguageChanged;
+
             _localizationManager = value;
 
             if (_localizationManager is not null)
-                _localizationManager.PropertyChanged += (s,e)=> 
-                {
-                    if (_localizationManager is null)
-                        return;
-
-                    OnNext(_localizationManager[Token]);
-                };
+                _localizationManager.PropertyChanged += LanguageChanged;
         }
     }
 
@@ -52,16 +49,18 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
     [MarkupExtensionDefaultOption]
     public string Token { get; set; } = string.Empty;
 
-    public string? StringFormat { get; set; }
+    public string? Category { get; set; }
+
+    public object[]? Arguments { get; set; }
  
     public IBinding? ProvideValue(IServiceProvider serviceProvider)
     {
-        var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
+        var localizationManager = LocalizationManagerExtensions.Default;
         if (localizationManager is null)
             return default;
 
         LocalizationManager = localizationManager;
-        OnNext(localizationManager[Token]);
+        SetLanguageValue(localizationManager);
         return this;
     }
 
@@ -73,5 +72,28 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
         });
 
         return InstancedBinding.TwoWay(this, observer); ;
+    }
+
+    void LanguageChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (sender is not ILocalizationManager localizationManager)
+            return;
+
+        SetLanguageValue(localizationManager);
+    }
+
+    void SetLanguageValue(ILocalizationManager localizationManager)
+    {
+        if (localizationManager is null)
+            return;
+
+        if (Arguments is not null && !string.IsNullOrWhiteSpace(Category))
+            OnNext(localizationManager[Token, Category!, Arguments]);
+        else if (Arguments is not null)
+            OnNext(localizationManager[Token, Arguments]);
+        else if (!string.IsNullOrWhiteSpace(Category))
+            OnNext(localizationManager[Token, Category!]);
+        else
+            OnNext(localizationManager[Token]);
     }
 }

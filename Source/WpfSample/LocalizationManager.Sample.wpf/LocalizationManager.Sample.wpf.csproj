@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\LocalizationManager.Core\LocalizationManager.Core.csproj" />
+    <ProjectReference Include="..\..\LocalizationManager.wpf\LocalizationManager.Wpf.csproj" />
+    <ProjectReference Include="..\..\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resource\Languages\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
