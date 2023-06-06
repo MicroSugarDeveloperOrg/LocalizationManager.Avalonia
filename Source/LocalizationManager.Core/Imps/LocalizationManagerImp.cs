@@ -51,7 +51,7 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
                 CultureInfo.DefaultThreadCurrentCulture = newValue;
                 CultureInfo.DefaultThreadCurrentUICulture = newValue;
                 return true;
-            }))
+            }, propertyName:null))
                 _LanguageChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentCulture)));
         }
     }

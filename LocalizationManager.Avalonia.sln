@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Package", ".Package", "{EE
 		Packages\global@avalonia-logo.png = Packages\global@avalonia-logo.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationManager.Sample.wpf", "Source\WpfSample\LocalizationManager.Sample.wpf\LocalizationManager.Sample.wpf.csproj", "{A485CBC2-232C-4F29-9B80-34AFDEE322D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +110,7 @@ Global
 		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 		{A0C84A35-3AC6-4B09-9439-F3CB22345A00} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8} = {20BF7AFE-13C3-4655-AD81-4F6BD1C20943}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}

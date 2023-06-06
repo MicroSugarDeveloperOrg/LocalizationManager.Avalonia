@@ -22,7 +22,7 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
 
     public LocalizedBinding() : base(string.Empty)
     {
-
+      
     }
 
     public LocalizedBinding(IBinding binding) : this()
@@ -33,21 +33,30 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
     public static readonly StyledProperty<string> TokenProperty =
             AvaloniaProperty.Register<LocalizedBinding, string>(nameof(Token));
 
-    public static readonly StyledProperty<string?> StringFormatProperty =
-            AvaloniaProperty.Register<LocalizedBinding, string?>(nameof(StringFormat));
+    public static readonly StyledProperty<string?> CategoryProperty =
+           AvaloniaProperty.Register<LocalizedBinding, string?>(nameof(Category));
+
+    public static readonly StyledProperty<object[]?> ArgumentsProperty =
+            AvaloniaProperty.Register<LocalizedBinding, object[]?>(nameof(Arguments));
 
     [Content]
     [MarkupExtensionDefaultOption]
     public string Token
     {
-        get => GetValue<string>(TokenProperty);
+        get => GetValue(TokenProperty);
         set => SetValue(TokenProperty, value);
     }
 
-    public string? StringFormat
+    public string? Category
     {
-        get => GetValue<string?>(StringFormatProperty);
-        set => SetValue(StringFormatProperty, value);
+        get => GetValue(CategoryProperty);
+        set => SetValue(CategoryProperty, value);
+    }
+
+    public object[]? Arguments
+    {
+        get => GetValue(ArgumentsProperty);
+        set => SetValue(ArgumentsProperty, value);
     }
 
     private ILocalizationManager? _localizationManager;
@@ -56,16 +65,13 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
         get => _localizationManager;
         set
         {
+            if (_localizationManager is not null)
+                _localizationManager.PropertyChanged -= LanguageChanged;
+
             _localizationManager = value;
 
             if (_localizationManager is not null)
-                _localizationManager.PropertyChanged += (s,e)=> 
-                {
-                    if (_localizationManager is null)
-                        return;
-
-                    OnNext(_localizationManager[Token]);
-                };
+                _localizationManager.PropertyChanged += LanguageChanged;
         }
     }
     public IBinding? ProvideValue(IServiceProvider serviceProvider)
@@ -75,7 +81,7 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
             return default;
 
         LocalizationManager = localizationManager;
-        OnNext(localizationManager[Token]);
+        SetLanguageValue(localizationManager);
         return this;
     }
 
@@ -87,5 +93,28 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
         });
 
         return InstancedBinding.TwoWay(this, observer); ;
+    }
+
+    void LanguageChanged(object? sender, PropertyChangedEventArgs e) 
+    {
+        if (sender is not ILocalizationManager localizationManager)
+            return;
+
+        SetLanguageValue(localizationManager);
+    }
+
+    void SetLanguageValue(ILocalizationManager localizationManager)
+    {
+        if (localizationManager is null)
+            return;
+
+        if (Arguments is not null && !string.IsNullOrWhiteSpace(Category))
+            OnNext(localizationManager[Token, Category!, Arguments]);
+        else if (Arguments is not null)
+            OnNext(localizationManager[Token, Arguments]);
+        else if (!string.IsNullOrWhiteSpace(Category))
+            OnNext(localizationManager[Token, Category!]);
+        else
+            OnNext(localizationManager[Token]);
     }
 }

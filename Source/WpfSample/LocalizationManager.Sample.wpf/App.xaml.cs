@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LocalizationManager.Sample.Language;
 using System.Windows;
 
 namespace LocalizationManager.Sample.wpf;
@@ -12,4 +7,13 @@ namespace LocalizationManager.Sample.wpf;
 /// </summary>
 public partial class App : Application
 {
+    public App()
+    {
+        LocalizationManagerBuilder.Initialize(() =>
+        {
+            return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
+        });
+
+    }
+
 }

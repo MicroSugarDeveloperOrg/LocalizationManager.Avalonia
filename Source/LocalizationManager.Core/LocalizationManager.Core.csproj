@@ -14,7 +14,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
-			<PrivateAssets>all</PrivateAssets>
+			<!--<PrivateAssets>all</PrivateAssets>-->
 		</PackageReference>
 		<PackageReference Include="PolySharp">
 			<PrivateAssets>all</PrivateAssets>

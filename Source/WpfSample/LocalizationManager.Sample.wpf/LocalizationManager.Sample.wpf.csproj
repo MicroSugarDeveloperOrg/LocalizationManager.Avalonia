@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\LocalizationManager.wpf\LocalizationManager.wpf.csproj" />
+    <ProjectReference Include="..\..\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj" />
+  </ItemGroup>
+
 </Project>
