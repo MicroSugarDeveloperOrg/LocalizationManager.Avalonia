@@ -1,4 +1,5 @@
 ﻿using LocalizationManager.Sample.Language;
+using System.IO;
 using System.Windows;
 
 namespace LocalizationManager.Sample.wpf;
@@ -11,7 +12,9 @@ public partial class App : Application
     {
         LocalizationManagerBuilder.Initialize(() =>
         {
-            return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
+            var appDirectory = AppContext.BaseDirectory;
+            var path = Path.Combine(appDirectory, "Resource", "Languages");
+            return LocalizationProviderExtensions.MakeXmlFilesProvider(path);
         });
 
     }

@@ -42,6 +42,18 @@ internal class LocalizationXmlFilesProvider : ILocalizationProvider
         }
     }
 
+    void LoadResource(CultureInfo locateCultureInfo)
+    {
+        var directory = new DirectoryInfo(_baseDirectory);
+        var subdirectories = directory.GetDirectories();
+
+        foreach (var subDirectory in subdirectories)
+        {
+            if (subDirectory.Name.Contains(CultureInfo.CurrentCulture.TwoLetterISOLanguageName))
+                LoadLanguageResource(subDirectory);
+        }
+    }
+
     void LoadLanguageResource(DirectoryInfo directory)
     {
         var allFiles = directory.GetFiles();
@@ -101,8 +113,14 @@ internal class LocalizationXmlFilesProvider : ILocalizationProvider
             return string.Empty;
 
         var mapResource = _mapResources.Where(kv => kv.Key.Contains(culture.TwoLetterISOLanguageName)).FirstOrDefault().Value;
+        if (mapResource is null)
+            LoadResource(culture);
 
-        if (string.IsNullOrWhiteSpace(category))
+        mapResource = _mapResources.Where(kv => kv.Key.Contains(culture.TwoLetterISOLanguageName)).FirstOrDefault().Value;
+        if (mapResource is null)
+            mapResource = _mapResources.FirstOrDefault().Value;
+
+        if (!string.IsNullOrWhiteSpace(category))
         {
             var mapValues = mapResource.Where(kv => kv.Key.Contains(category)).FirstOrDefault().Value;
             if (mapValues is null)

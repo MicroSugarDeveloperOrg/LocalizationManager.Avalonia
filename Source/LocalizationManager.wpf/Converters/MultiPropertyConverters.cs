@@ -19,8 +19,13 @@ internal class MultiPropertyConverters : IMultiValueConverter
         if (string.IsNullOrWhiteSpace(tokenString))
             return default;
 
-        var category = values[1]?.ToString();
-        var arguments = values[2] as object[];
+        string? category = default;
+        if (values[1] != DependencyProperty.UnsetValue)
+            category = values[1]?.ToString();
+
+        object[]? arguments = default;
+        if (values[2] != DependencyProperty.UnsetValue)
+            arguments = values[2] as object[];
 
         if (arguments is not null)
             return localizationManager.GetValue(tokenString, category, arguments);

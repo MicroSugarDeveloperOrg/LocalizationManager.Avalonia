@@ -12,4 +12,10 @@
     <ProjectReference Include="..\..\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resource\Languages\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
