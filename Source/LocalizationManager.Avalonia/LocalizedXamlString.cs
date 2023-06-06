@@ -52,11 +52,13 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
     [MarkupExtensionDefaultOption]
     public string Token { get; set; } = string.Empty;
 
+    public string? Category { get; set; }
+
     public string? StringFormat { get; set; }
  
     public IBinding? ProvideValue(IServiceProvider serviceProvider)
     {
-        var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
+        var localizationManager = LocalizationManagerExtensions.Default;
         if (localizationManager is null)
             return default;
 

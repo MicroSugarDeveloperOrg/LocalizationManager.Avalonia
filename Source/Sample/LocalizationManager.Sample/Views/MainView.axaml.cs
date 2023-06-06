@@ -8,7 +8,7 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
-        _localizationManager = AvaloniaLocator.Current.GetRequiredService<ILocalizationManager>();
+        _localizationManager = LocalizationManagerExtensions.Default!;
         PART_Button.Click += PART_Button_Click;
     }
 

@@ -15,12 +15,12 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
 
     }
 
-    private event PropertyChangedEventHandler? _StrongPropertyChanged;
+    private event EventHandler<EventArgs>? _LanguageChanged;
 
-    event PropertyChangedEventHandler? ILocalizationChanged.StrongPropertyChanged
+    event EventHandler<EventArgs>? ILocalizationChanged.LanguageChanged
     {
-        add => _StrongPropertyChanged += value;
-        remove => _StrongPropertyChanged -= value;
+        add => _LanguageChanged += value;
+        remove => _LanguageChanged -= value;
     }
 
     ILocalizationProvider? _provider;
@@ -33,8 +33,9 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
     }
 
     public string this[string token] => GetValue(token);
-
+    public string this[string token, string category] => GetValue(token, category);
     public string this[string token, params object[] arguments] => GetValue(token, arguments);
+    public string this[string token, string category, params object[] arguments] => GetValue(token, category, arguments);
 
     public CultureInfo DefaultCulture { get; }
 
@@ -43,12 +44,15 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
         get => _currentCulture;
         set
         {
-            CultureInfo.CurrentCulture = value;
-            CultureInfo.CurrentUICulture = value;
-            CultureInfo.DefaultThreadCurrentCulture = value;
-            CultureInfo.DefaultThreadCurrentUICulture = value;
-            if (SetProperty(ref _currentCulture, value))
-                _StrongPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentCulture)));
+            if (SetProperty(ref _currentCulture, value, (oldValue, newValue) =>
+            {
+                CultureInfo.CurrentCulture = newValue;
+                CultureInfo.CurrentUICulture = newValue;
+                CultureInfo.DefaultThreadCurrentCulture = newValue;
+                CultureInfo.DefaultThreadCurrentUICulture = newValue;
+                return true;
+            }))
+                _LanguageChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentCulture)));
         }
     }
 
@@ -57,6 +61,10 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
     public string GetValue(string token) => _provider?.GetString(token, CurrentCulture) ?? string.Empty;
 
     public string GetValue(string token, params object[] arguments) => _provider?.GetString(token, CurrentCulture, arguments) ?? string.Empty;
+
+    public string GetValue(string token, string? category = null) => _provider?.GetString(token, category, CurrentCulture) ?? string.Empty;
+
+    public string GetValue(string token, string? category, params object[] arguments) => _provider?.GetString(token, category, CurrentCulture, arguments) ?? string.Empty;
 
     public void Dispose()
     {
@@ -69,5 +77,5 @@ internal class LocalizationManagerImp : BindableBase, ILocalizationManager
         return new ValueTask();
     }
 
-   
+
 }

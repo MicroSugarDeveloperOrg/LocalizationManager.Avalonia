@@ -13,6 +13,13 @@ public class LocalizationProviderExtensions
         return new LocalizationXmlFileProvider(baseDirectory,baseName);
     }
 
+    public static ILocalizationProvider MakeXmlFilesProvider(string baseDirectory)
+    {
+        if (string.IsNullOrWhiteSpace(baseDirectory)) throw new ArgumentNullException(nameof(baseDirectory));
+        if (!Directory.Exists(baseDirectory)) throw new ArgumentNullException(nameof(baseDirectory), $"The baseDirectory:{baseDirectory} is not exists!");
+        return new LocalizationXmlFilesProvider(baseDirectory);
+    }
+
     public static ILocalizationProvider MakeResourceProvider(ResourceManager resourceManager)
     {
         if (resourceManager is null) throw new ArgumentNullException(nameof(resourceManager));

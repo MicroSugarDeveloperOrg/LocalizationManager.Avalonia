@@ -20,17 +20,17 @@ public partial class App : Application
         base.RegisterServices();
 
         // Use xml language 
-        //AvaloniaLocator.CurrentMutable.UseLocalizationManager(() =>
-        //{
-        //    var appDirectory = AppContext.BaseDirectory;
-        //    //var path = Path.Combine(appDirectory, "Assets", "Languages");
-        //    //var appDirectory = Environment.CurrentDirectory;
-        //    var path = Path.Combine(appDirectory, "Assets", "Languages");
-        //    return LocalizationProviderExtensions.MakeXmlFileProvider(path, "language");
-        //});
+        LocalizationManagerBuilder.Initialize(() =>
+        {
+            var appDirectory = AppContext.BaseDirectory;
+            //var path = Path.Combine(appDirectory, "Assets", "Languages");
+            //var appDirectory = Environment.CurrentDirectory;
+            var path = Path.Combine(appDirectory, "Assets", "Languages");
+            return LocalizationProviderExtensions.MakeXmlFileProvider(path, "language");
+        });
 
         // Use Resoucece language
-        AvaloniaLocator.CurrentMutable.UseLocalizationManager(() =>
+        LocalizationManagerBuilder.Initialize(() =>
         {
             return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
         });

@@ -70,7 +70,7 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
     }
     public IBinding? ProvideValue(IServiceProvider serviceProvider)
     {
-        var localizationManager = AvaloniaLocator.Current.GetService<ILocalizationManager>();
+        var localizationManager = LocalizationManagerExtensions.Default;
         if (localizationManager is null)
             return default;
 

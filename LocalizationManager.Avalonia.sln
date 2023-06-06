@@ -38,6 +38,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Language", "Source\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj", "{F536F02C-CCEC-416F-98C8-B58F4473A5A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationManager.wpf", "Source\LocalizationManager.wpf\LocalizationManager.wpf.csproj", "{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfSample", "WpfSample", "{20BF7AFE-13C3-4655-AD81-4F6BD1C20943}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Package", ".Package", "{EE7984F1-8E93-4659-82F9-3C96376BBEE6}"
+	ProjectSection(SolutionItems) = preProject
+		Packages\global@avalonia-logo.png = Packages\global@avalonia-logo.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +89,10 @@ Global
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F72C506-EC09-4F12-B06A-D0BEFFC4E899}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
