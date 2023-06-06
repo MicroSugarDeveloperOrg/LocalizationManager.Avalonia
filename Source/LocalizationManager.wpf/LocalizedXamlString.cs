@@ -1,6 +1,4 @@
-﻿using System.Windows.Data;
-
-namespace LocalizationManager.wpf;
+﻿namespace LocalizationManager.Wpf;
 
 [ContentProperty(nameof(Token))]
 public class LocalizedXamlString : MarkupExtension

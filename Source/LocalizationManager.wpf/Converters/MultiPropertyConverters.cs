@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using System.Windows.Data;
-
-namespace LocalizationManager.wpf.Converters;
+﻿namespace LocalizationManager.Wpf.Converters;
 internal class MultiPropertyConverters : IMultiValueConverter
 {
     public object? Convert(object[] values, Type targetType, object parameter, CultureInfo culture)

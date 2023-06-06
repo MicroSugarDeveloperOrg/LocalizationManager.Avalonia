@@ -6,7 +6,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackageId>LocalizationManager.Core.Avalonia</PackageId>
+		<PackageId>LocalizationManager.Core</PackageId>
 		<Title>LocalizationManager.Core</Title>
 	</PropertyGroup>
 

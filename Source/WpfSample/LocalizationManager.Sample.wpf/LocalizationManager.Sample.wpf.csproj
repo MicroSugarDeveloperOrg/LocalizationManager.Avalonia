@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LocalizationManager.wpf\LocalizationManager.wpf.csproj" />
+    <ProjectReference Include="..\..\LocalizationManager.Core\LocalizationManager.Core.csproj" />
+    <ProjectReference Include="..\..\LocalizationManager.wpf\LocalizationManager.Wpf.csproj" />
     <ProjectReference Include="..\..\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj" />
   </ItemGroup>
 
