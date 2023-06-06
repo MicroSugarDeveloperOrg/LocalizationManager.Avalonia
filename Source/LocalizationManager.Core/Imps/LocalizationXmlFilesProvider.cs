@@ -49,7 +49,7 @@ internal class LocalizationXmlFilesProvider : ILocalizationProvider
 
         foreach (var subDirectory in subdirectories)
         {
-            if (subDirectory.Name.Contains(CultureInfo.CurrentCulture.TwoLetterISOLanguageName))
+            if (subDirectory.Name.Contains(locateCultureInfo.TwoLetterISOLanguageName))
                 LoadLanguageResource(subDirectory);
         }
     }
