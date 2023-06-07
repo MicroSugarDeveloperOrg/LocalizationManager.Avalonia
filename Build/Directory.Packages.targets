@@ -1,7 +1,7 @@
 ﻿<Project>
 	<PropertyGroup>
 		<!--Package-->
-		<LocalizationManagerVersion>0.1.0-rc1.1.2</LocalizationManagerVersion>
+		<LocalizationManagerVersion>0.1.0-rc1.1.3</LocalizationManagerVersion>
 		<LocalizationManagerPackageOutputPath>$(RepositoryDirectory)nuget\</LocalizationManagerPackageOutputPath>
 		<VersionPrefix>1.0.0-avalonia11p6-preview1</VersionPrefix>
 		<Authors>AvaloniaDeveloper</Authors>
@@ -20,7 +20,7 @@
 		<PackageOutputPath>$(LocalizationManagerPackageOutputPath)</PackageOutputPath>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<None Include="..\..\README.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
@@ -32,6 +32,6 @@
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
-	</ItemGroup>
+	</ItemGroup>-->
 	
 </Project>

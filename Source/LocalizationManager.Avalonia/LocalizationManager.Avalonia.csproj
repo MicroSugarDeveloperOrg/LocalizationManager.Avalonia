@@ -14,6 +14,20 @@
 
 	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
 
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Packages\global@avalonia-logo.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
 	<Target Name="CopyTargetsForTfmSpecificContentInPackage">
 		<ItemGroup>
 			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
