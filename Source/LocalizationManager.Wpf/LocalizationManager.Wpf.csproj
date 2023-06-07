@@ -4,7 +4,7 @@
 		<TargetFrameworks>net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<Title>LocalizationManager.wpf</Title>
-		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>
+		<!--<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>-->
 		<!--<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>-->
 		<!--<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>-->
 	</PropertyGroup>
@@ -57,7 +57,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\LocalizationManager.Core\LocalizationManager.Core.csproj">
-			<PrivateAssets>all</PrivateAssets>
+			<!--<PrivateAssets>all</PrivateAssets>-->
 		</ProjectReference>
 	</ItemGroup>
 
