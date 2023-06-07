@@ -4,8 +4,9 @@
 		<TargetFrameworks>net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<Title>LocalizationManager.wpf</Title>
-		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-		<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>
+		<!--<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>-->
+		<!--<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>-->
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -29,13 +30,19 @@
 		<PackageOutputPath>$(LocalizationManagerPackageOutputPath)</PackageOutputPath>
 	</PropertyGroup>
 
+	<Target Name="CopyTargetsForTfmSpecificContentInPackage">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
+				<TargetFramework>$(TargetFramework)</TargetFramework>
+				<PackagePath>lib/$(TargetFramework)/</PackagePath>
+			</TfmSpecificPackageFile> 
+		</ItemGroup>
+	</Target>
 
 	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
 			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
-			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
-				<TargetFramework>$(TargetFramework)</TargetFramework>
-			</TfmSpecificPackageFile>
+			
 		</ItemGroup>
 	</Target>
 

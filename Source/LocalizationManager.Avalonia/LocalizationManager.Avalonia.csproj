@@ -7,18 +7,25 @@
 	<PropertyGroup>
 		<PackageId>LocalizationManager.Avalonia</PackageId>
 		<Title>LocalizationManager.Avalonia</Title>
-		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-		<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>
+		<!--<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>-->
+		<!--<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>-->
 	</PropertyGroup>
 
 	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
 
+	<Target Name="CopyTargetsForTfmSpecificContentInPackage">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
+				<TargetFramework>$(TargetFramework)</TargetFramework>
+				<PackagePath>lib/$(TargetFramework)/</PackagePath>
+			</TfmSpecificPackageFile>
+		</ItemGroup>
+	</Target>
+
 	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
 			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
-			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
-				<TargetFramework>$(TargetFramework)</TargetFramework>
-			</TfmSpecificPackageFile>
 		</ItemGroup>
 	</Target>
 
