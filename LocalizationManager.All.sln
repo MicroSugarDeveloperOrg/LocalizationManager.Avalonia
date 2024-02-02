@@ -38,12 +38,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.Language", "Source\Sample\LocalizationManager.Sample.Language\LocalizationManager.Sample.Language.csproj", "{F536F02C-CCEC-416F-98C8-B58F4473A5A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfSample", "WpfSample", "{20BF7AFE-13C3-4655-AD81-4F6BD1C20943}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Package", ".Package", "{EE7984F1-8E93-4659-82F9-3C96376BBEE6}"
 	ProjectSection(SolutionItems) = preProject
 		Packages\global@avalonia-logo.png = Packages\global@avalonia-logo.png
 		Packages\global@wpf-logo.png = Packages\global@wpf-logo.png
 		Packages\README.md = Packages\README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Sample.wpf", "Source\WpfSample\LocalizationManager.Sample.wpf\LocalizationManager.Sample.wpf.csproj", "{A485CBC2-232C-4F29-9B80-34AFDEE322D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationManager.Wpf", "Source\LocalizationManager.Wpf\LocalizationManager.Wpf.csproj", "{5AE5CE1A-B913-4583-B160-B0D87A17F743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +93,14 @@ Global
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AE5CE1A-B913-4583-B160-B0D87A17F743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AE5CE1A-B913-4583-B160-B0D87A17F743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AE5CE1A-B913-4583-B160-B0D87A17F743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AE5CE1A-B913-4583-B160-B0D87A17F743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +112,7 @@ Global
 		{139D8B26-1DFB-4307-AB0E-42FB1DF12F3D} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 		{A0C84A35-3AC6-4B09-9439-F3CB22345A00} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
 		{F536F02C-CCEC-416F-98C8-B58F4473A5A7} = {CB7C8C7F-87A4-4B72-AF88-2EE06D21D0BB}
+		{A485CBC2-232C-4F29-9B80-34AFDEE322D8} = {20BF7AFE-13C3-4655-AD81-4F6BD1C20943}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
