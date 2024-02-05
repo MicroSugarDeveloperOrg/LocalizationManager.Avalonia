@@ -1,9 +1,16 @@
 ﻿namespace LocalizationManager.Avalonia.Providers;
 internal class LocalizationAvaloniaResourceProvider : ILocalizationProvider
 {
-    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
+    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    string? ILocalizationProvider.Category => throw new NotImplementedException();
 
     public void Dispose()
+    {
+        throw new NotImplementedException();
+    }
+
+    bool ILocalizationProvider.AddResource(string resourceDirectory, string baseName, Type? usingResourceSet)
     {
         throw new NotImplementedException();
     }
@@ -18,13 +25,4 @@ internal class LocalizationAvaloniaResourceProvider : ILocalizationProvider
         throw new NotImplementedException();
     }
 
-    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture)
-    {
-        throw new NotImplementedException();
-    }
-
-    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture, params object[] arguments)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -1,10 +1,10 @@
-﻿namespace LocalizationManager;
+﻿using LocalizationManager.args;
+
+namespace LocalizationManager;
 public interface ILocalizationChanged : INotifyPropertyChanged
 {
     CultureInfo DefaultCulture { get; }
     CultureInfo CurrentCulture { get; set; }
 
-    //event PropertyChangedEventHandler? StrongPropertyChanged;
-
-    event EventHandler<EventArgs>? LanguageChanged;
+    event EventHandler<LanguageChangedEventArgs>? LanguageChanged;
 }

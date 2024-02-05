@@ -4,6 +4,7 @@ using Avalonia.Markup.Xaml;
 using LocalizationManager.Sample.Language;
 using LocalizationManager.Sample.ViewModels;
 using LocalizationManager.Sample.Views;
+using System.Globalization;
 
 namespace LocalizationManager.Sample;
 public partial class App : Application
@@ -18,20 +19,31 @@ public partial class App : Application
         base.RegisterServices();
 
         // Use xml language 
-        LocalizationManagerBuilder.Initialize(() =>
+        LocalizationManagerBuilder.Build(() =>
         {
             var appDirectory = AppContext.BaseDirectory;
-            //var path = Path.Combine(appDirectory, "Assets", "Languages");
-            //var appDirectory = Environment.CurrentDirectory;
             var path = Path.Combine(appDirectory, "Assets", "Languages");
-            return LocalizationProviderExtensions.MakeXmlFileProvider(path, "language");
+            var provider = LocalizationProviderExtensions.MakeXmlFileProvider(name =>
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                    return CultureInfo.CurrentCulture;
+
+                var index = name.IndexOf('-');
+                if (index == -1)
+                    return new CultureInfo("en-US");
+
+                var stringName = name.Substring(index + 1);
+                return new CultureInfo(stringName);
+            }, path, "language");
+
+            return provider;
         });
 
         // Use Resoucece language
-        LocalizationManagerBuilder.Initialize(() =>
-        {
-            return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
-        });
+        //LocalizationManagerBuilder.Build(() =>
+        //{
+        //    return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
+        //});
 
     }
 
