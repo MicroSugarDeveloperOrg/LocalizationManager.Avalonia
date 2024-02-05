@@ -1,14 +1,16 @@
 ﻿namespace LocalizationManager.Core.Imps;
+
 internal class LocalizationXmlFileProvider : ILocalizationProvider
 {
-    public LocalizationXmlFileProvider(Func<string, CultureInfo> provider, string baseDirectory, string baseName)
-        : this(provider, (baseDirectory, baseName))
+    public LocalizationXmlFileProvider(string? category, Func<string, CultureInfo> provider, string baseDirectory, string baseName)
+        : this(category, provider, (baseDirectory, baseName))
     {
 
     }
 
-    public LocalizationXmlFileProvider(Func<string, CultureInfo> provider, params (string baseDirectory, string baseName)[] parameters)
+    public LocalizationXmlFileProvider(string? category,Func<string, CultureInfo> provider, params (string baseDirectory, string baseName)[] parameters)
     {
+        Category = category;
         _provider = provider;
         LoadResource(parameters);
     }
@@ -24,11 +26,7 @@ internal class LocalizationXmlFileProvider : ILocalizationProvider
         set => _languages = new(value);
     }
 
-    public string? Category
-    {
-        get;
-        set;
-    }
+    public string? Category { get; }
 
     bool ILocalizationProvider.AddResource(string resourceDirectory, string baseName, Type? usingResourceSet)
     {

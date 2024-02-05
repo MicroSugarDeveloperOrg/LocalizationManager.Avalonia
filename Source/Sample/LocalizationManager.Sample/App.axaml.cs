@@ -23,7 +23,7 @@ public partial class App : Application
         {
             var appDirectory = AppContext.BaseDirectory;
             var path = Path.Combine(appDirectory, "Assets", "Languages");
-            var provider = LocalizationProviderExtensions.MakeXmlFileProvider(name =>
+            var provider = LocalizationProviderExtensions.MakeXmlFileProvider(default, name =>
             {
                 if (string.IsNullOrWhiteSpace(name))
                     return CultureInfo.CurrentCulture;
@@ -42,9 +42,8 @@ public partial class App : Application
         // Use Resoucece language
         //LocalizationManagerBuilder.Build(() =>
         //{
-        //    return LocalizationProviderExtensions.MakeResourceProvider(LanguageResourceHelper.LanguageResourceManager);
+        //    return LocalizationProviderExtensions.MakeResourceProvider(default, LanguageResourceHelper.LanguageResourceManager);
         //});
-
     }
 
     public override void OnFrameworkInitializationCompleted()

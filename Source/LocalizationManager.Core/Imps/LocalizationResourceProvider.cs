@@ -1,20 +1,21 @@
-﻿using System.Resources;
+﻿namespace LocalizationManager.Core.Imps;
 
-namespace LocalizationManager.Core.Imps;
 internal class LocalizationResourceProvider : ILocalizationProvider, ILocalizationResourceProvider
 {
-    public LocalizationResourceProvider(ResourceManager resourceManager) 
+    public LocalizationResourceProvider(string? category, ResourceManager resourceManager)
     {
+        Category = category;
         ((ILocalizationResourceProvider)this).AddResource(resourceManager);
     }
 
-    public LocalizationResourceProvider(IEnumerable<ResourceManager> resourceManagers)
+    public LocalizationResourceProvider(string? category, IEnumerable<ResourceManager> resourceManagers)
     {
+        Category = category;
         _resourceManagers = resourceManagers.ToList();
     }
 
-    public LocalizationResourceProvider(string resourceDirectory, string baseName, Type? usingResourceSet = null)
-        : this(LoadResources(resourceDirectory, baseName, usingResourceSet))
+    public LocalizationResourceProvider(string? category, string resourceDirectory, string baseName, Type? usingResourceSet = null)
+        : this(category, LoadResources(resourceDirectory, baseName, usingResourceSet))
     {
     }
 
@@ -38,7 +39,7 @@ internal class LocalizationResourceProvider : ILocalizationProvider, ILocalizati
         set;
     }
 
-    public string? Category { get; set; }
+    public string? Category { get; }
 
     bool ILocalizationProvider.AddResource(string resourceDirectory, string baseName, Type? usingResourceSet) => ((ILocalizationResourceProvider)this).AddResource(LoadResources(resourceDirectory, baseName, usingResourceSet));
 
@@ -47,7 +48,7 @@ internal class LocalizationResourceProvider : ILocalizationProvider, ILocalizati
         if (resourceManager is null)
             return false;
 
-     
+
         _resourceManagers.Add(resourceManager);
         return true;
     }
