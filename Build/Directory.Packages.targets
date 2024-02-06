@@ -1,9 +1,9 @@
 ﻿<Project>
 	<PropertyGroup>
 		<!--Package-->
-		<LocalizationManagerVersion>11.0.0</LocalizationManagerVersion>
+		<LocalizationManagerVersion>11.0.7.1-preview</LocalizationManagerVersion>
 		<LocalizationManagerPackageOutputPath>$(RepositoryDirectory)nuget\</LocalizationManagerPackageOutputPath>
-		<VersionPrefix>11.0.0-avalonia11.0.0</VersionPrefix>
+		<VersionPrefix>11.0.7-avalonia11.0.7</VersionPrefix>
 		<Authors>AvaloniaDeveloper</Authors>
 		<Company>AvaloniaDeveloperOrg</Company>
 		<Description>This repository is a set of styles that will help you customize your application with multi-language.</Description>

@@ -11,6 +11,14 @@
 
 	<Import Project="$(BuildToolsDirectory)Directory.build.common.props" />
 
+	<ItemGroup>
+		<AssemblyMetadata Include="BuildTime" Value="$([System.DateTime]::UtcNow.ToString(o))" />
+		<AssemblyMetadata Include="OS" Value="$([System.Runtime.InteropServices.RuntimeInformation]::OSDescription)" />
+		<AssemblyMetadata Include="OSArchitecture" Value="$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)" />
+		<AssemblyMetadata Include="FrameworkDescription" Value="$([System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription)" />
+		<AssemblyMetadata Include="ProcessArchitecture" Value="$([System.Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture)" />
+	</ItemGroup>
+
 	<!--<ItemGroup>
 		<PackageReference Include="PolySharp">
 			<PrivateAssets>all</PrivateAssets>
