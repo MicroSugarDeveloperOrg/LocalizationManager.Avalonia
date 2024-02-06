@@ -6,9 +6,9 @@ using Avalonia.ReactiveUI;
 namespace LocalizationManager.Sample.Android;
 [Activity(Label = "LocalizationManager.Sample.Android", 
           Theme = "@style/MyTheme.NoActionBar", 
-          Icon = "@drawable/icon",
-          MainLauncher = true,
-          ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
+          Icon = "@drawable/icon", 
+          LaunchMode = LaunchMode.SingleTop, 
+          ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
 public class MainActivity : AvaloniaMainActivity<App>
 {
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)

@@ -1,23 +1,25 @@
 ﻿namespace LocalizationManager.Core.Imps;
-internal class LocalizationResourceProvider : ILocalizationProvider
-{
-    public LocalizationResourceProvider(ResourceManager resourceManager)
-        : this(new List<ResourceManager>() { resourceManager })
-    {
 
+internal class LocalizationResourceProvider : ILocalizationProvider, ILocalizationResourceProvider
+{
+    public LocalizationResourceProvider(string? category, ResourceManager resourceManager)
+    {
+        Category = category;
+        ((ILocalizationResourceProvider)this).AddResource(resourceManager);
     }
 
-    public LocalizationResourceProvider(IEnumerable<ResourceManager> resourceManagers)
+    public LocalizationResourceProvider(string? category, IEnumerable<ResourceManager> resourceManagers)
     {
+        Category = category;
         _resourceManagers = resourceManagers.ToList();
     }
 
-    public LocalizationResourceProvider(string resourceDirectory, string baseName, Type? usingResourceSet = null)
-        : this(LoadResources(resourceDirectory, baseName, usingResourceSet))
+    public LocalizationResourceProvider(string? category, string resourceDirectory, string baseName, Type? usingResourceSet = null)
+        : this(category, LoadResources(resourceDirectory, baseName, usingResourceSet))
     {
     }
 
-    readonly List<ResourceManager> _resourceManagers;
+    readonly List<ResourceManager> _resourceManagers = new();
 
     static ResourceManager LoadResources(string resourceDirectory, string baseName, Type? usingResourceSet = null)
     {
@@ -31,7 +33,25 @@ internal class LocalizationResourceProvider : ILocalizationProvider
         return resourceManager;
     }
 
-    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps => throw new NotImplementedException();
+    IEnumerable<CultureInfo>? ILocalizationLanguageMap.LanguageMaps
+    {
+        get;
+        set;
+    }
+
+    public string? Category { get; }
+
+    bool ILocalizationProvider.AddResource(string resourceDirectory, string baseName, Type? usingResourceSet) => ((ILocalizationResourceProvider)this).AddResource(LoadResources(resourceDirectory, baseName, usingResourceSet));
+
+    bool ILocalizationResourceProvider.AddResource(ResourceManager resourceManager)
+    {
+        if (resourceManager is null)
+            return false;
+
+
+        _resourceManagers.Add(resourceManager);
+        return true;
+    }
 
     string ILocalizationProvider.GetString(string token, CultureInfo culture)
     {
@@ -49,11 +69,8 @@ internal class LocalizationResourceProvider : ILocalizationProvider
             return value;
         }
     }
+
     string ILocalizationProvider.GetString(string token, CultureInfo culture, params object[] arguments) => string.Format(((ILocalizationProvider)this).GetString(token, culture), arguments);
-
-    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture) => ((ILocalizationProvider)this).GetString(token, culture);
-
-    string ILocalizationProvider.GetString(string token, string? category, CultureInfo culture, params object[] arguments) => ((ILocalizationProvider)this).GetString(token, culture, arguments);
 
     public void Dispose()
     {
@@ -65,4 +82,6 @@ internal class LocalizationResourceProvider : ILocalizationProvider
 
         _resourceManagers.Clear();
     }
+
+
 }

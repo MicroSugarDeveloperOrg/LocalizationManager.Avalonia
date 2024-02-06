@@ -1,13 +1,13 @@
 ﻿namespace LocalizationManager;
 public interface ILocalizationManager : ILocalizationLanguageMap, ILocalizationChanged, IDisposable, IAsyncDisposable
 {
-    bool SetProvider(ILocalizationProvider localizationProvider);
+    bool AddProvider(ILocalizationProvider localizationProvider);
 
     string GetValue(string token);
     string GetValue(string token, params object[] arguments);
 
-    string GetValue(string token, string? category = default);
-    string GetValue(string token, string? category, params object[] arguments);
+    string GetValue(string token, string category);
+    string GetValue(string token, string category, params object[] arguments);
 
     string this[string token] { get; }
     string this[string token, string category] { get; }
