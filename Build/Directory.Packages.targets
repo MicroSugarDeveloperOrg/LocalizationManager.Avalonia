@@ -1,7 +1,7 @@
 ﻿<Project>
 	<PropertyGroup>
 		<!--Package-->
-		<LocalizationManagerVersion>11.0.7.1-preview</LocalizationManagerVersion>
+		<LocalizationManagerVersion>11.0.7</LocalizationManagerVersion>
 		<LocalizationManagerPackageOutputPath>$(RepositoryDirectory)nuget\</LocalizationManagerPackageOutputPath>
 		<VersionPrefix>11.0.7-avalonia11.0.7</VersionPrefix>
 		<Authors>AvaloniaDeveloper</Authors>
