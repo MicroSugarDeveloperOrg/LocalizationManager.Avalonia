@@ -4,45 +4,47 @@
 		<TargetFrameworks>net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<Title>LocalizationManager.wpf</Title>
-		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>
+		<!--<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>-->
 		<!--<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>-->
 		<!--<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>-->
+
+		
 	</PropertyGroup>
+
+	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
 
 	<PropertyGroup>
-		<!--Package-->
-		<LocalizationManagerVersion>0.1.0-rc1.1.1</LocalizationManagerVersion>
-		<LocalizationManagerPackageOutputPath>$(RepositoryDirectory)nuget\</LocalizationManagerPackageOutputPath>
-		<VersionPrefix>1.0.0</VersionPrefix>
-		<Authors>AvaloniaDeveloper</Authors>
-		<Company>AvaloniaDeveloperOrg</Company>
-		<Description>This repository is a set of styles that will help you customize your application with multi-language.</Description>
-		<PackageTags>easy multi-language for avaloniaui</PackageTags>
-		<RepositoryUrl>https://github.com/AvaloniaDeveloperOrg/AntDesign.Avalonia</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/AvaloniaDeveloperOrg/AntDesign.Avalonia</PackageProjectUrl>
-		<RepositoryType>git</RepositoryType>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>global@wpf-logo.png</PackageIcon>
-		<Version>$(LocalizationManagerVersion)</Version>
-		<PackageOutputPath>$(LocalizationManagerPackageOutputPath)</PackageOutputPath>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<None Include="..\..\Packages\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Packages\global@wpf-logo.png">
+			<Link>global@avalonia-logo.png</Link>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+		
 	<Target Name="CopyTargetsForTfmSpecificContentInPackage">
 		<ItemGroup>
 			<TfmSpecificPackageFile Include="$(OutputPath)LocalizationManager.Core.dll">
-				<TargetFramework>$(TargetFramework)</TargetFramework>
-				<PackagePath>lib/</PackagePath>
-			</TfmSpecificPackageFile> 
+				<!--<TargetFramework>$(TargetFramework)</TargetFramework>-->
+				<PackagePath>lib/net5.0-windows/;lib/net6.0-windows/;lib/net7.0-windows</PackagePath>
+			</TfmSpecificPackageFile>
 		</ItemGroup>
 	</Target>
 
 	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
 			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
-			
+
 		</ItemGroup>
 	</Target>
 
@@ -56,23 +58,12 @@
 	</Target>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+
 		<ProjectReference Include="..\LocalizationManager.Core\LocalizationManager.Core.csproj">
-			<PrivateAssets>all</PrivateAssets>
+			<!--<PrivateAssets>all</PrivateAssets>-->
 		</ProjectReference>
 	</ItemGroup>
 
-	<ItemGroup>
-		<None Include="..\..\Packages\README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\Packages\global@wpf-logo.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
 
 </Project>

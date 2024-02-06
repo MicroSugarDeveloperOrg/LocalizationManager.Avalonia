@@ -12,6 +12,25 @@
 
 	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
 
+	<PropertyGroup>
+		<PackageIcon>global@wpf-logo.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Packages\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Packages\global@wpf-logo.png">
+			<Link>global@avalonia-logo.png</Link>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
 			<!--<PrivateAssets>all</PrivateAssets>-->

@@ -7,12 +7,26 @@
 	<PropertyGroup>
 		<PackageId>LocalizationManager.Avalonia</PackageId>
 		<Title>LocalizationManager.Avalonia</Title>
-		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>
+		<!--<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyTargetsForTfmSpecificContentInPackage</TargetsForTfmSpecificContentInPackage>-->
 		<!--<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>-->
 		<!--<TargetsForTfmSpecificDebugSymbolsInPackage>$(TargetsForTfmSpecificDebugSymbolsInPackage);CopyProjectReferencesSymbolsToPackage</TargetsForTfmSpecificDebugSymbolsInPackage>-->
 	</PropertyGroup>
 
 	<Import Project="$(BuildToolsDirectory)Directory.Packages.targets" />
+
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Packages\global@avalonia-logo.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 	<Target Name="CopyTargetsForTfmSpecificContentInPackage">
 		<ItemGroup>
@@ -46,7 +60,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\LocalizationManager.Core\LocalizationManager.Core.csproj">
-			<PrivateAssets>all</PrivateAssets>
+			<!--<PrivateAssets>all</PrivateAssets>-->
 		</ProjectReference>
 	</ItemGroup>
 
