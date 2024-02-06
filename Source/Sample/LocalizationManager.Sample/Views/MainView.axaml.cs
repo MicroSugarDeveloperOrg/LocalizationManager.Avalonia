@@ -17,8 +17,8 @@ public partial class MainView : UserControl
     private void PART_Button_Click(object? sender, global::Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (_localizationManager.CurrentCulture.TwoLetterISOLanguageName == "en")
-            _localizationManager.CurrentCulture = new CultureInfo("zh-CN");
+            _localizationManager.CurrentCulture = new CultureInfo("zh");
         else
-            _localizationManager.CurrentCulture = new CultureInfo("en-US");
+            _localizationManager.CurrentCulture = new CultureInfo("en");
     }
 }

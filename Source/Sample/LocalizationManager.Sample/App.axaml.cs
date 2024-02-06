@@ -19,31 +19,31 @@ public partial class App : Application
         base.RegisterServices();
 
         // Use xml language 
-        LocalizationManagerBuilder.Build(() =>
-        {
-            var appDirectory = AppContext.BaseDirectory;
-            var path = Path.Combine(appDirectory, "Assets", "Languages");
-            var provider = LocalizationProviderExtensions.MakeXmlFileProvider(default, name =>
-            {
-                if (string.IsNullOrWhiteSpace(name))
-                    return CultureInfo.CurrentCulture;
-
-                var index = name.IndexOf('-');
-                if (index == -1)
-                    return new CultureInfo("en-US");
-
-                var stringName = name.Substring(index + 1);
-                return new CultureInfo(stringName);
-            }, path, "language");
-
-            return provider;
-        });
-
-        // Use Resoucece language
         //LocalizationManagerBuilder.Build(() =>
         //{
-        //    return LocalizationProviderExtensions.MakeResourceProvider(default, LanguageResourceHelper.LanguageResourceManager);
+        //    var appDirectory = AppContext.BaseDirectory;
+        //    var path = Path.Combine(appDirectory, "Assets", "Languages");
+        //    var provider = LocalizationProviderExtensions.MakeXmlFileProvider(default, name =>
+        //    {
+        //        if (string.IsNullOrWhiteSpace(name))
+        //            return CultureInfo.CurrentCulture;
+
+        //        var index = name.IndexOf('-');
+        //        if (index == -1)
+        //            return new CultureInfo("en-US");
+
+        //        var stringName = name.Substring(index + 1);
+        //        return new CultureInfo(stringName);
+        //    }, path, "language");
+
+        //    return provider;
         //});
+
+        // Use Resoucece language
+        LocalizationManagerBuilder.Build(() =>
+        {
+            return LocalizationProviderExtensions.MakeResourceProvider(default, LanguageResourceHelper.LanguageResourceManager);
+        });
     }
 
     public override void OnFrameworkInitializationCompleted()
