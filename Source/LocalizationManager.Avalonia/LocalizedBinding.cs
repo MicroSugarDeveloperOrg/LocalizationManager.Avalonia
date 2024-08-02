@@ -82,7 +82,7 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
 
         LocalizationManager = localizationManager;
         SetLanguageValue(localizationManager);
-        return this;
+        return this.ToBinding();
     }
 
     public InstancedBinding? Initiate(AvaloniaObject target, AvaloniaProperty? targetProperty, object? anchor = null, bool enableDataValidation = false)
