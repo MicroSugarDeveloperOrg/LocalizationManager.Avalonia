@@ -1,29 +1,29 @@
 ﻿<Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <AvaloniaVersion>11.0.7</AvaloniaVersion>
+    <AvaloniaVersion>11.1.1</AvaloniaVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Avalonia" Version="11.1.1" />
+    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Xaml.Behaviors" Version="$(AvaloniaVersion)" />
     <!--<PackageVersion Include="Avalonia.Web" Version="$(AvaloniaVersion)" />-->
-    <PackageVersion Include="Avalonia.iOS" Version="11.1.1" />
-    <PackageVersion Include="Avalonia.Android" Version="11.1.1" />
-    <PackageVersion Include="Avalonia.Desktop" Version="11.1.1" />
+    <PackageVersion Include="Avalonia.iOS" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Native" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="Avalonia.Browser" Version="11.1.1" />
+    <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Browser.Blazor" Version="$(AvaloniaVersion)" />
     <!--<PackageVersion Include="Avalonia.Web.Blazor" Version="$(AvaloniaVersion)" />-->
     <PackageVersion Include="Avalonia.Direct2D1" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Headless.Vnc" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="Avalonia.ReactiveUI" Version="11.1.1" />
-    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.1.1" />
+    <PackageVersion Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Markup.Xaml.Loader" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="Avalonia.Diagnostics" Version="11.1.1" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="System.Collections.Immutable" Version="5.0.0" />
     <PackageVersion Include="System.Reactive" Version="6.0.1" />
     <PackageVersion Include="XamlNameReferenceGenerator" Version="1.6.1" />
