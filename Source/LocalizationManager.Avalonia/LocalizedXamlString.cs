@@ -1,9 +1,11 @@
-﻿using LocalizationManager.Avalonia.Reactive;
+﻿using Avalonia.Styling;
+using LocalizationManager.Avalonia.Core;
+using LocalizationManager.Avalonia.Reactive;
 using System.Reactive;
 
 namespace LocalizationManager.Avalonia;
 
-public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtension*/
+public class LocalizedXamlString : Subjected<string>, IBinding2 /*: MarkupExtension*/
 {
     public LocalizedXamlString() : base("")
     {
@@ -71,7 +73,7 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
 
         });
 
-        return InstancedBinding.TwoWay(this, observer); ;
+        return InstancedBinding.TwoWay(this, observer);
     }
 
     void LanguageChanged(object? sender, PropertyChangedEventArgs e)
@@ -84,9 +86,8 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
 
     void SetLanguageValue(ILocalizationManager localizationManager)
     {
-        if (localizationManager is null)
-            return;
-
+        if (localizationManager is null) return;
+        
         if (Arguments is not null && !string.IsNullOrWhiteSpace(Category))
             OnNext(localizationManager[Token, Category!, Arguments]);
         else if (Arguments is not null)
@@ -95,5 +96,10 @@ public class LocalizedXamlString : Subjected<string>, IBinding /*: MarkupExtensi
             OnNext(localizationManager[Token, Category!]);
         else
             OnNext(localizationManager[Token]);
+    }
+
+    public BindingExpressionBase Instance(AvaloniaObject target, AvaloniaProperty? targetProperty, object? anchor)
+    {
+        return default!;
     }
 }

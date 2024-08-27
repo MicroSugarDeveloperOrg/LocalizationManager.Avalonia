@@ -74,7 +74,7 @@ public class LocalizedBinding : SubjectedObject<string>, IBinding
                 _localizationManager.PropertyChanged += LanguageChanged;
         }
     }
-    public IBinding? ProvideValue(IServiceProvider serviceProvider)
+    public object? ProvideValue(IServiceProvider serviceProvider)
     {
         var localizationManager = LocalizationManagerExtensions.Default;
         if (localizationManager is null)
